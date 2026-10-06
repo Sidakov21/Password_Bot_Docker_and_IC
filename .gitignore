@@ -1,0 +1,41 @@
+# OS
+Thumbs.db
+Desktop.ini
+.DS_Store
+
+# Editors
+.vscode/
+.idea/
+*.swp
+
+# Logs
+*.log
+logs/
+
+# Environments
+.env
+.venv/
+venv/
+env/
+
+# Dependencies
+node_modules/
+__pycache__/
+*.pyc
+*.pyo
+
+# Build
+dist/
+build/
+*.o
+*.exe
+*.dll
+*.so
+
+# Archives
+*.zip
+*.rar
+*.7z
+
+# Files
+ЦТ_ДЗ.pdf
