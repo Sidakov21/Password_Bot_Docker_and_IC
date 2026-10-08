@@ -13,8 +13,7 @@ logging.basicConfig(level=logging.INFO)
 async def main() -> None:
     if not BOT_TOKEN:
         raise SystemExit(
-            "BOT_TOKEN не найден. Создай файл .env (по образцу .env.example)"
-            " и впиши токен от @BotFather."
+            "BOT_TOKEN не найден."
         )
 
     await db.init_db()
