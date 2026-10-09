@@ -1,0 +1,12 @@
+.git
+.gitignore
+**/__pycache__
+**/*.pyc
+.venv
+venv
+env
+Task_2_Bot/data
+Task_2_Bot/.env
+Task_2_Bot/.venv
+*.pdf
+Task_2_Bot/ПЛАН.md

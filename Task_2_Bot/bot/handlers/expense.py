@@ -88,7 +88,10 @@ async def category_selected(callback: CallbackQuery, state: FSMContext) -> None:
             reply_markup=undo_inline(op_id),
         )
     await callback.answer("Сохранено")
-    await callback.message.answer("Выберите действие в меню 👇", reply_markup=main_menu())
+    if callback.message:
+        await callback.message.answer(
+            "Выберите действие в меню 👇", reply_markup=main_menu()
+        )
 
 
 @router.callback_query(F.data.startswith("undo:"))
@@ -100,5 +103,7 @@ async def undo_operation(callback: CallbackQuery) -> None:
         await callback.message.edit_text(
             "🗑 Запись удалена" if removed else "Запись уже была удалена"
         )
-    await callback.message.answer("Выберите действие в меню 👇", reply_markup=main_menu())
+        await callback.message.answer(
+            "Выберите действие в меню 👇", reply_markup=main_menu()
+        )
 

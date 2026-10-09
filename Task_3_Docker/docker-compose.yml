@@ -1,0 +1,13 @@
+services:
+  kopilka-bot:
+    build:
+      context: ..
+      dockerfile: Task_3_Docker/Dockerfile
+    env_file:
+      - ../Task_2_Bot/.env
+    volumes:
+      - kopilka_data:/app/data
+    restart: unless-stopped
+
+volumes:
+  kopilka_data:

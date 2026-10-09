@@ -90,6 +90,13 @@ async def cats_ren_old(message: Message, state: FSMContext):
         await _leave_menu(message, state)
         return
     old = message.text.strip()
+    cats = await db.get_categories(message.from_user.id)
+    if old not in cats:
+        await message.answer(
+            f"Категория «{old}» не найдена. Выберите из списка:\n" + ", ".join(cats),
+            reply_markup=cancel_kb,
+        )
+        return
     await state.update_data(old=old)
     await state.set_state(Categories.rename_new)
     await message.answer("Введите новое название:", reply_markup=cancel_kb)
@@ -124,6 +131,13 @@ async def cats_del(message: Message, state: FSMContext):
         await _leave_menu(message, state)
         return
     name = message.text.strip()
+    cats = await db.get_categories(message.from_user.id)
+    if name not in cats:
+        await message.answer(
+            f"Категория «{name}» не найдена. Выберите из списка:\n" + ", ".join(cats),
+            reply_markup=cancel_kb,
+        )
+        return
     ok = await db.delete_category(message.from_user.id, name)
     await state.clear()
     if ok:

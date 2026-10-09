@@ -1,0 +1,2 @@
+# Сборка: context = корень репозитория (см. docker-compose.yml).
+# Исключения — в файле /.dockerignore

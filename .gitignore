@@ -43,4 +43,7 @@ build/
 # Project
 Task_2_Bot/data/
 Task_2_Bot/.env
-Task_2_Bot/ПЛАН.md 
+
+# Docker (локальные override-файлы)
+Task_3_Docker/.env
+Task_3_Docker/docker-compose.override.yml

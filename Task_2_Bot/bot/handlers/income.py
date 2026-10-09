@@ -93,4 +93,7 @@ async def income_category_selected(callback: CallbackQuery, state: FSMContext) -
     if callback.message:
         await callback.message.edit_text(text, reply_markup=undo_inline(op_id))
     await callback.answer("Сохранено")
-    await callback.message.answer("Выберите действие в меню 👇", reply_markup=main_menu())
+    if callback.message:
+        await callback.message.answer(
+            "Выберите действие в меню 👇", reply_markup=main_menu()
+        )
