@@ -111,7 +111,7 @@ docker compose down
 | Асинхронный SQLite | [Документация aiosqlite](https://aiosqlite.omnilib.dev/) |
 | Диаграммы в отчёте | [Matplotlib](https://matplotlib.org/stable/users/index.html) |
 | Переменные окружения | [python-dotenv](https://github.com/theskumar/python-dotenv) |
-| Docker | [Docker Docs — Dockerfile](https://docs.docker.org/reference/dockerfile/), [Compose](https://docs.docker.com/compose/) |
+| Docker | [Docker Docs — Dockerfile](https://docs.docker.com/reference/dockerfile/), [Compose](https://docs.docker.com/compose/) |
 | Python: `random`, строки | [Документация Python — random](https://docs.python.org/3/library/random.html), [string](https://docs.python.org/3/library/string.html) |
 
 Дополнительно — официальные README библиотек на PyPI, примеры FSM и inline-клавиатур в документации aiogram.
