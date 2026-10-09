@@ -5,7 +5,7 @@ from aiogram import Bot, Dispatcher
 
 from bot import db
 from bot.config import BOT_TOKEN
-from bot.handlers import common, expense, income, start
+from bot.handlers import categories, common, expense, history, income, report, start
 
 logging.basicConfig(level=logging.INFO)
 
@@ -21,9 +21,12 @@ async def main() -> None:
     bot = Bot(token=BOT_TOKEN)
     dp = Dispatcher()
     dp.include_router(common.router)
+    dp.include_router(categories.router)
     dp.include_router(start.router)
     dp.include_router(expense.router)
     dp.include_router(income.router)
+    dp.include_router(history.router)
+    dp.include_router(report.router)
 
     print("Бот запущен. Остановка — Ctrl+C")
     await dp.start_polling(bot)

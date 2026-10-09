@@ -47,3 +47,11 @@ def undo_inline(op_id: int) -> InlineKeyboardMarkup:
             ]
         ]
     )
+
+
+def history_inline(op_ids: list[int]) -> InlineKeyboardMarkup:
+    rows = [
+        [InlineKeyboardButton(text=f"🗑 Удалить #{op_id}", callback_data=f"delop:{op_id}")]
+        for op_id in op_ids
+    ]
+    return InlineKeyboardMarkup(inline_keyboard=rows)

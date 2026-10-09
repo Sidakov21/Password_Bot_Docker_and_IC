@@ -68,13 +68,17 @@ async def add_category(user_id: int, name: str) -> bool:
         return cur.rowcount > 0
 
 
-async def rename_category(user_id: int, old_name: str, new_name: str) -> None:
+async def rename_category(user_id: int, old_name: str, new_name: str) -> bool:
     async with aiosqlite.connect(DB_PATH) as db:
-        await db.execute(
-            "UPDATE categories SET name = ? WHERE user_id = ? AND name = ?",
-            (new_name, user_id, old_name),
-        )
-        await db.commit()
+        try:
+            cur = await db.execute(
+                "UPDATE categories SET name = ? WHERE user_id = ? AND name = ?",
+                (new_name, user_id, old_name),
+            )
+            await db.commit()
+        except aiosqlite.IntegrityError:
+            return False
+    return cur.rowcount > 0
 
 
 async def delete_category(user_id: int, name: str) -> bool:
